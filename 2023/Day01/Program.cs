@@ -1,6 +1,4 @@
-﻿using AdventOfCode2023.Day01;
-
-namespace AdventOfCode2023
+﻿namespace Day01
 {
     internal class Program
     {

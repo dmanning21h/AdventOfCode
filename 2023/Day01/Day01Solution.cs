@@ -1,10 +1,8 @@
-﻿using AdventOfCode2023.Common;
-using System.Reflection;
-using System.Runtime.ExceptionServices;
+﻿using System.Reflection;
 
-namespace AdventOfCode2023.Day01
+namespace Day01
 {
-    public sealed class Day01Solution : ISolution
+    public sealed class Day01Solution
     {
         public void Solve()
         {
@@ -13,7 +11,7 @@ namespace AdventOfCode2023.Day01
             PartTwo(input);
         }
 
-        public object PartOne(string[] input)
+        public void PartOne(string[] input)
         {
             int sum = 0;
             int first, second;
@@ -26,10 +24,9 @@ namespace AdventOfCode2023.Day01
             }
 
             Console.WriteLine(sum);
-            return null;
         }
 
-        public object PartTwo(string[] input)
+        public void PartTwo(string[] input)
         {
             int sum = 0;
             foreach (var line in input)
@@ -89,14 +86,13 @@ namespace AdventOfCode2023.Day01
             }
 
             Console.WriteLine(sum);
-            return null;
         }
 
         private string[] GetInput()
         {
             var executablePath = new FileInfo(Assembly.GetExecutingAssembly().Location).Directory.Parent.Parent.Parent.FullName;
             if (executablePath == null) throw new Exception("Could not find input file.");
-            
+
             var filePath = Path.Combine(executablePath, "Day01/input.txt");
             return File.ReadAllLines(filePath);
         }
