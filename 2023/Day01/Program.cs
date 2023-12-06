@@ -1,11 +1,18 @@
-﻿namespace Day01
+﻿namespace Day01;
+
+internal class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        var filePath = "input.txt";
+        if (!File.Exists(filePath))
         {
-            Day01Solution solution = new Day01Solution();
-            solution.Solve();
+            Console.WriteLine($"Could not find input file at {filePath}");
         }
+
+        var input = File.ReadAllLines(filePath);
+
+        //Solution.SolvePartOne(input);
+        Solution.SolvePartTwo(input);
     }
 }
