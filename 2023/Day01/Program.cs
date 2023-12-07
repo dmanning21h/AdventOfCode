@@ -12,7 +12,7 @@ internal class Program
 
         var input = File.ReadAllLines(filePath);
 
-        //Solution.SolvePartOne(input);
+        Solution.SolvePartOne(input);
         Solution.SolvePartTwo(input);
     }
 }

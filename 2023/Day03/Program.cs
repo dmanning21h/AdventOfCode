@@ -4,7 +4,16 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            var filePath = "input.txt";
+            if (!File.Exists(filePath))
+            {
+                Console.WriteLine($"Could not find input file at {filePath}");
+            }
+
+            var input = File.ReadAllLines(filePath);
+
+            Solution.SolvePartOne(input);
+            Solution.SolvePartTwo(input);
         }
     }
 }
