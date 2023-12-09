@@ -11,9 +11,10 @@
             }
 
             var input = File.ReadAllLines(filePath);
+            var engineSchematic = new EngineSchematic(input);
 
-            Solution.SolvePartOne(input);
-            Solution.SolvePartTwo(input);
+            Solution.SolvePartOne(engineSchematic);
+            Solution.SolvePartTwo(engineSchematic);
         }
     }
 }
