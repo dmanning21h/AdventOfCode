@@ -1,20 +1,18 @@
-﻿namespace Day03
+﻿using AdventOfCode.Lib;
+
+namespace AdventOfCode.Y2023.Day03;
+
+internal class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            var filePath = "input.txt";
-            if (!File.Exists(filePath))
-            {
-                Console.WriteLine($"Could not find input file at {filePath}");
-            }
+        var filePath = "input.txt";
 
-            var input = File.ReadAllLines(filePath);
-            var engineSchematic = new EngineSchematic(input);
+        var input = InputReader.ReadInput(filePath);
 
-            Solution.SolvePartOne(engineSchematic);
-            Solution.SolvePartTwo(engineSchematic);
-        }
+        var engineSchematic = new EngineSchematic(input);
+
+        Solution.SolvePartOne(engineSchematic);
+        Solution.SolvePartTwo(engineSchematic);
     }
 }

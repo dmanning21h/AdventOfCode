@@ -4,10 +4,10 @@ public sealed class Solution
 {
     public List<ScratchCard> ScratchCards { get; set; }
 
-    public Solution(string[] input)
+    public Solution(string input)
     {
         ScratchCards = [];
-        foreach (var line in input)
+        foreach (var line in input.Split('\n'))
         {
             ScratchCards.Add(new ScratchCard(line));
         }

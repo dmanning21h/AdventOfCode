@@ -1,4 +1,4 @@
-﻿namespace Day02;
+﻿namespace AdventOfCode.Y2023.Day02;
 
 public sealed class CubeGame
 {
