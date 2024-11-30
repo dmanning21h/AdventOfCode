@@ -1,4 +1,4 @@
-﻿namespace Day05;
+﻿namespace AdventOfCode.Y2023.Day05;
 
 public class WaterToLightRange : BaseRange
 {

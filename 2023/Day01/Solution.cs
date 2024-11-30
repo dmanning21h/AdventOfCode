@@ -1,14 +1,18 @@
-﻿namespace Day01;
+﻿namespace AdventOfCode.Y2023.Day01;
 
 public sealed class Solution
 {
+    private static string[] ParseInput(string input)
+    {
+        return input.Split("\n");
+    }
 
-    public static void SolvePartOne(string[] input)
+    public static void SolvePartOne(string input)
     {
         int sum = 0;
         int first, second;
 
-        foreach (var line in input)
+        foreach (var line in ParseInput(input))
         {
             first = int.Parse(line.First(char.IsDigit).ToString());
             second = int.Parse(line.Last(char.IsDigit).ToString());
@@ -18,10 +22,10 @@ public sealed class Solution
         Console.WriteLine(sum);
     }
 
-    public static void SolvePartTwo(string[] input)
+    public static void SolvePartTwo(string input)
     {
         int sum = 0;
-        foreach (var line in input)
+        foreach (var line in ParseInput(input))
         {
             int firstValue = GetFirstDigit(line);
             int lastValue = GetLastDigit(line);

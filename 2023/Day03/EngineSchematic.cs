@@ -1,13 +1,15 @@
-﻿namespace Day03;
+﻿namespace AdventOfCode.Y2023.Day03;
 
 public sealed class EngineSchematic
 {
     public List<SchematicLine> SchematicLines { get; set; }
 
-    public EngineSchematic(string[] input)
+    public EngineSchematic(string input)
     {
-        SchematicLines = new List<SchematicLine>();
-        ParseSchematicLines(input, SchematicLines);
+        var parsedInput = input.Split('\n');
+
+        SchematicLines = [];
+        ParseSchematicLines(parsedInput, SchematicLines);
         SetValidSchematicLinePartNumbers(SchematicLines);
         SetValidGears(SchematicLines);
     }
@@ -71,9 +73,9 @@ public sealed class SchematicLine
 
     public SchematicLine(string inputLine)
     {
-        PartNumbers = new List<PartNumber>();
-        Symbols = new List<Symbol>();
-        Gears = new List<Gear>();
+        PartNumbers = [];
+        Symbols = [];
+        Gears = [];
         ParseData(inputLine, Symbols, PartNumbers, Gears);
     }
 

@@ -1,8 +1,7 @@
-﻿namespace Day03;
+﻿namespace AdventOfCode.Y2023.Day03;
 
 public sealed class Solution
 {
-
     public static void SolvePartOne(EngineSchematic engineSchematic)
     {
         var answer = engineSchematic.SchematicLines.Sum(s => s.PartNumbers.Where(p => p.IsValid).Sum(p => p.Value));
