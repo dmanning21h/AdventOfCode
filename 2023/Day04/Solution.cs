@@ -9,7 +9,7 @@ public sealed class Solution : ISolution
     public Solution(string input)
     {
         ScratchCards = [];
-        foreach (var line in input.Split('\n'))
+        foreach (var line in input.Split("\r\n"))
         {
             ScratchCards.Add(new ScratchCard(line));
         }
