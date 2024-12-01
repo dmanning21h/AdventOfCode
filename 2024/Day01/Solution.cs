@@ -2,15 +2,13 @@
 
 namespace AdventOfCode.Y2024.Day01;
 
-public sealed class Solution : ISolution
+public sealed class Solution : BaseSolution, ISolution
 {
     private List<int> leftList;
     private List<int> rightList;
 
-    public Solution(string rawInput)
+    public Solution(string rawInput) : base(rawInput)
     {
-        var input = InputParser.ParseLines(rawInput);
-
         leftList = [];
         rightList = [];
         foreach (string line in input)

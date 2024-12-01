@@ -2,14 +2,10 @@
 
 namespace AdventOfCode.Y2023.Day01;
 
-public sealed class Solution : ISolution
+public sealed class Solution : BaseSolution, ISolution
 {
-    private string[] input;
-
-    public Solution(string rawInput)
-    {
-        input = InputParser.ParseLines(rawInput);
-    }
+    public Solution(string rawInput) : base(rawInput)
+    { }
 
     public string SolvePartOne()
     {
