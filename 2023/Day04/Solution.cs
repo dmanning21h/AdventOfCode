@@ -1,6 +1,8 @@
-﻿namespace Day04;
+﻿using AdventOfCode.Lib;
 
-public sealed class Solution
+namespace AdventOfCode.Y2023.Day04;
+
+public sealed class Solution : ISolution
 {
     public List<ScratchCard> ScratchCards { get; set; }
 
@@ -13,7 +15,7 @@ public sealed class Solution
         }
     }
 
-    public void SolvePartOne()
+    public string SolvePartOne()
     {
         int answer = 0;
         foreach (var card in ScratchCards)
@@ -21,10 +23,10 @@ public sealed class Solution
             answer += card.CardScore;
         }
 
-        Console.WriteLine($"Part One: {answer}");
+        return answer.ToString();
     }
 
-    public void SolvePartTwo()
+    public string SolvePartTwo()
     {
         int answer = 0;
         foreach (var card in ScratchCards)
@@ -43,6 +45,6 @@ public sealed class Solution
             answer += card.CardCopies;
         }
 
-        Console.WriteLine($"Part Two: {answer}");
+        return answer.ToString();
     }
 }

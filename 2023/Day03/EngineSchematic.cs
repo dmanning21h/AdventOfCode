@@ -1,12 +1,14 @@
-﻿namespace AdventOfCode.Y2023.Day03;
+﻿using AdventOfCode.Lib;
+
+namespace AdventOfCode.Y2023.Day03;
 
 public sealed class EngineSchematic
 {
     public List<SchematicLine> SchematicLines { get; set; }
 
-    public EngineSchematic(string input)
+    public EngineSchematic(string rawInput)
     {
-        var parsedInput = input.Split('\n');
+        var parsedInput = InputParser.ParseLines(rawInput);
 
         SchematicLines = [];
         ParseSchematicLines(parsedInput, SchematicLines);

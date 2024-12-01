@@ -1,16 +1,20 @@
-﻿namespace AdventOfCode.Y2023.Day02;
+﻿using AdventOfCode.Lib;
 
-public sealed class Solution
+namespace AdventOfCode.Y2023.Day02;
+
+public sealed class Solution : ISolution
 {
-    private static string[] ParseInput(string input)
+    private string[] input;
+
+    public Solution(string rawInput)
     {
-        return input.Split("\n");
+        input = InputParser.ParseLines(rawInput);
     }
 
-    public static void SolvePartOne(string input)
+    public string SolvePartOne()
     {
         int answer = 0;
-        foreach (var line in ParseInput(input))
+        foreach (var line in input)
         {
             var game = new CubeGame(line);
             if (game.IsValidGame)
@@ -19,18 +23,18 @@ public sealed class Solution
             }
         }
 
-        Console.WriteLine($"Part One: {answer}");
+        return answer.ToString();
     }
 
-    public static void SolvePartTwo(string input)
+    public string SolvePartTwo()
     {
         int answer = 0;
-        foreach (var line in ParseInput(input))
+        foreach (var line in input)
         {
             var game = new CubeGame(line);
             answer += game.MaximumRedCubes * game.MaximumGreenCubes * game.MaximumBlueCubes;
         }
 
-        Console.WriteLine($"Part Two: {answer}");
+        return answer.ToString();
     }
 }

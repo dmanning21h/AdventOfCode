@@ -2,7 +2,7 @@
 
 public interface ISolution
 {
-    public string SolvePartOne(string input);
+    public string SolvePartOne();
 
-    public string SolvePartTwo(string input);
+    public string SolvePartTwo();
 }
