@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Day04;
+namespace AdventOfCode.Y2023.Day04;
 
 public sealed class ScratchCard
 {

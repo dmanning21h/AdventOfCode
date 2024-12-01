@@ -1,28 +1,29 @@
-﻿namespace AdventOfCode.Y2023.Day05;
+﻿using AdventOfCode.Lib;
 
-public sealed class Solution
+namespace AdventOfCode.Y2023.Day05;
+
+public sealed class Solution : ISolution
 {
-    public string Input { get; init; }
+    public string input { get; init; }
 
-
-    public Solution(string input)
+    public Solution(string rawInput)
     {
-        Input = input;
+        input = rawInput;
     }
 
-    public void SolvePartOne()
+    public string SolvePartOne()
     {
-        var almanac = new Almanac(Input);
+        var almanac = new Almanac(input);
         var locationIds = almanac.Seeds.Select(s => s.LocationId);
 
-        Console.WriteLine($"Part One: {locationIds.Min()}\n");
+        return locationIds.Min().ToString();
     }
 
-    public void SolvePartTwo()
+    public string SolvePartTwo()
     {
-        var almanac = new Almanac(Input, true);
+        var almanac = new Almanac(input, true);
         var locationIds = almanac.Seeds.Select(s => s.LocationId);
 
-        Console.WriteLine($"\nPart Two: {locationIds.Min()}");
+        return locationIds.Min().ToString();
     }
 }

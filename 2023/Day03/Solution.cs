@@ -2,17 +2,24 @@
 
 public sealed class Solution
 {
-    public static void SolvePartOne(EngineSchematic engineSchematic)
+    private EngineSchematic engineSchematic;
+
+    public Solution(string rawInput)
+    {
+        engineSchematic = new EngineSchematic(rawInput);
+    }
+
+    public string SolvePartOne()
     {
         var answer = engineSchematic.SchematicLines.Sum(s => s.PartNumbers.Where(p => p.IsValid).Sum(p => p.Value));
 
-        Console.WriteLine($"Part One: {answer}");
+        return answer.ToString();
     }
 
-    public static void SolvePartTwo(EngineSchematic engineSchematic)
+    public string SolvePartTwo()
     {
         var answer = engineSchematic.SchematicLines.Sum(s => s.Gears.Where(g => g.IsValid).Sum(g => g.GearRatio));
 
-        Console.WriteLine($"Part Two: {answer}");
+        return answer.ToString();
     }
 }

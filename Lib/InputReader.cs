@@ -2,7 +2,7 @@
 
 public static class InputReader
 {
-    public static string ReadInput(string filePath)
+    public static string ReadRawInput(string filePath)
     {
         if (!File.Exists(filePath))
         {

@@ -1,42 +1,43 @@
-﻿namespace AdventOfCode.Y2023.Day01;
+﻿using AdventOfCode.Lib;
 
-public sealed class Solution
+namespace AdventOfCode.Y2023.Day01;
+
+public sealed class Solution : ISolution
 {
-    private static string[] ParseInput(string input)
+    private string[] input;
+
+    public Solution(string rawInput)
     {
-        return input.Split("\n");
+        input = InputParser.ParseLines(rawInput);
     }
 
-    public static void SolvePartOne(string input)
+    public string SolvePartOne()
     {
         int sum = 0;
         int first, second;
 
-        foreach (var line in ParseInput(input))
+        foreach (var line in input)
         {
             first = int.Parse(line.First(char.IsDigit).ToString());
             second = int.Parse(line.Last(char.IsDigit).ToString());
             sum += 10 * first + second;
         }
 
-        Console.WriteLine(sum);
+        return sum.ToString();
     }
 
-    public static void SolvePartTwo(string input)
+    public string SolvePartTwo()
     {
         int sum = 0;
-        foreach (var line in ParseInput(input))
+        foreach (var line in input)
         {
             int firstValue = GetFirstDigit(line);
             int lastValue = GetLastDigit(line);
 
-            Console.WriteLine(line);
-            Console.WriteLine($"{firstValue} {lastValue}");
-
             sum += 10 * firstValue + lastValue;
         }
 
-        Console.WriteLine(sum);
+        return sum.ToString();
     }
 
     private static int GetFirstDigit(string line)
