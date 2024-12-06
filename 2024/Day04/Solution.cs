@@ -104,19 +104,6 @@ public sealed class Solution : ISolution
         return window;
     }
 
-    private void Print4x4Window(char[,] window)
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            for (int j = 0; j < 4; j++)
-            {
-                Console.Write(window[i, j]);
-            }
-            Console.WriteLine();
-        }
-        Console.WriteLine();
-    }
-
     private int GetDiagonalXMASCount(char[,] window)
     {
         int count = 0;
