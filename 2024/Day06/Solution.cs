@@ -1,30 +1,17 @@
 ﻿using AdventOfCode.Lib;
 
-namespace AdventOfCode.Y2024.Day05;
+namespace AdventOfCode.Y2024.Day06;
 
 public sealed class Solution : ISolution
 {
-    private readonly PageOrderRuleCollection pageOrderRules;
-    private readonly List<Manual> manuals;
 
     public Solution(string rawInput)
     {
-        var splitInput = rawInput.Split("\r\n\r\n");
-
-        pageOrderRules = new(InputParser.ParseLines(splitInput[0]));
-        manuals = InputParser.ParseLines(splitInput[1]).Select(m => new Manual(m)).ToList();
     }
 
     public string SolvePartOne()
     {
         int answer = 0;
-        foreach (var manual in manuals)
-        {
-            if (pageOrderRules.IsValidManual(manual))
-            {
-                answer += GetMiddlePage(manual);
-            }
-        }
 
         return answer.ToString();
     }
@@ -32,13 +19,6 @@ public sealed class Solution : ISolution
     public string SolvePartTwo()
     {
         int answer = 0;
-        foreach (var manual in manuals)
-        {
-            if (!pageOrderRules.IsValidManual(manual))
-            {
-                answer += GetMiddlePage(pageOrderRules.SortInvalidManual(manual));
-            }
-        }
 
         return answer.ToString();
     }
