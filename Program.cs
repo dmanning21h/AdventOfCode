@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
-using AdventOfCode.Lib;
+using AdventOfCode.Lib.Input;
+using AdventOfCode.Lib.Solutions;
 
 namespace AdventOfCode;
 

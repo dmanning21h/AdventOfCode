@@ -1,4 +1,4 @@
-﻿using AdventOfCode.Lib;
+﻿using AdventOfCode.Lib.Input;
 
 namespace AdventOfCode.Y2023.Day03;
 

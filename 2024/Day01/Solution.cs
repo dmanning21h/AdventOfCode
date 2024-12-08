@@ -1,8 +1,8 @@
-﻿using AdventOfCode.Lib;
+﻿using AdventOfCode.Lib.Solutions;
 
 namespace AdventOfCode.Y2024.Day01;
 
-public sealed class Solution : BaseSolution, ISolution
+public sealed class Solution : LineInputSolution, ISolution
 {
     private List<int> leftList;
     private List<int> rightList;
@@ -11,7 +11,7 @@ public sealed class Solution : BaseSolution, ISolution
     {
         leftList = [];
         rightList = [];
-        foreach (string line in input)
+        foreach (string line in lines)
         {
             var split = line.Split("   ");
 

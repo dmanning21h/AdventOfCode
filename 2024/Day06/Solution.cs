@@ -1,4 +1,6 @@
-﻿using AdventOfCode.Lib;
+﻿using AdventOfCode.Lib.Geometry;
+using AdventOfCode.Lib.Input;
+using AdventOfCode.Lib.Solutions;
 
 namespace AdventOfCode.Y2024.Day06;
 
@@ -14,22 +16,20 @@ public sealed class Solution : ISolution
 
     private sealed class LabPatrol
     {
-        public Grid Grid { get; init; }
+        public Grid2D Grid { get; init; }
 
         private Coordinate GuardCoordinate { get; set; }
 
         private Direction CurrentDirection { get; set; } = Direction.Up;
 
-        private bool IsGuardInLab => CoordinateIsInGrid(GuardCoordinate);
+        private bool IsGuardInLab => Grid.Contains(GuardCoordinate);
 
         private HashSet<(int x, int y)> visitedPositions = [];
         private HashSet<(int x, int y, int dx, int dy)> visitedVectors = [];
 
         public LabPatrol(string rawInput)
         {
-            List<List<char>> charGrid = rawInput.Split("\r\n").Select(line => line.ToList()).ToList();
-
-            Grid = new Grid(charGrid);
+            Grid = InputParser.ParseGrid2D(rawInput);
 
             GuardCoordinate = Grid.Coordinates.SelectMany(row => row).First(coord => coord.Value == '^');
         }
@@ -42,9 +42,9 @@ public sealed class Solution : ISolution
                 int dy = GetDy(CurrentDirection);
 
                 var nextMoveCoordinate = new Coordinate(GuardCoordinate.X + dx, GuardCoordinate.Y + dy);
-                if (CoordinateIsInGrid(nextMoveCoordinate))
+                if (Grid.Contains(nextMoveCoordinate))
                 {
-                    if (Grid[nextMoveCoordinate].Value == '#')
+                    if (Grid[nextMoveCoordinate] == '#')
                     {
                         Turn();
                         continue;
@@ -86,9 +86,9 @@ public sealed class Solution : ISolution
                     int dy = GetDy(CurrentDirection);
 
                     var nextMoveCoordinate = new Coordinate(GuardCoordinate.X + dx, GuardCoordinate.Y + dy);
-                    if (CoordinateIsInGrid(nextMoveCoordinate))
+                    if (Grid.Contains(nextMoveCoordinate))
                     {
-                        if (Grid[nextMoveCoordinate].Value == '#')
+                        if (Grid[nextMoveCoordinate] == '#')
                         {
                             Turn();
                             continue;
@@ -145,56 +145,6 @@ public sealed class Solution : ISolution
                 Direction.Down => 1,
                 _ => 0
             };
-        }
-
-        private bool CoordinateIsInGrid(Coordinate coordinate)
-        {
-            return (coordinate.X >= 0 && coordinate.X < Grid.Coordinates[0].Count) && (coordinate.Y >= 0 && coordinate.Y < Grid.Coordinates.Count);
-        }
-    }
-
-    private sealed record Grid
-    {
-        public List<List<Coordinate>> Coordinates { get; init; }
-
-        public Grid(List<List<char>> charGrid)
-        {
-            Coordinates = [];
-            foreach (var row in charGrid)
-            {
-                List<Coordinate> coords = [];
-                foreach (var item in row)
-                {
-                    int x = row.IndexOf(item);
-                    int y = charGrid.IndexOf(row);
-                    coords.Add(new Coordinate(x, y) { Value = item });
-                }
-
-                Coordinates.Add(coords);
-            }
-        }
-
-        public Coordinate this[Coordinate coordinate]
-        {
-            get
-            {
-                return Coordinates[coordinate.Y][coordinate.X];
-            }
-        }
-    }
-
-    public record Coordinate
-    {
-        public int X { get; init; }
-
-        public int Y { get; init; }
-
-        public char Value { get; set; }
-
-        public Coordinate(int x, int y)
-        {
-            X = x;
-            Y = y;
         }
     }
 

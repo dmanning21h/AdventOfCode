@@ -1,4 +1,4 @@
-﻿namespace AdventOfCode.Lib;
+﻿namespace AdventOfCode.Lib.Solutions;
 
 public interface ISolution
 {
