@@ -1,16 +1,16 @@
-﻿using AdventOfCode.Lib;
+﻿using AdventOfCode.Lib.Solutions;
 using System.Text;
 
 namespace AdventOfCode.Y2024.Day07;
 
-public sealed class Solution : BaseSolution, ISolution
+public sealed class Solution : LineInputSolution, ISolution
 {
     private readonly List<Equation> equations;
 
     public Solution(string rawInput) : base(rawInput)
     {
         equations = [];
-        foreach (var line in input)
+        foreach (var line in lines)
         {
             var parts = line.Split(":");
             var testValue = long.Parse(parts[0]);

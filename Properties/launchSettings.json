@@ -1,8 +1,8 @@
 {
 	"profiles": {
-		"2024 Day 8": {
+		"2024 Day 9": {
 			"commandName": "Project",
-			"commandLineArgs": "--year 2024 --day 8"
+			"commandLineArgs": "--year 2024 --day 9"
 		},
 		"2024": {
 			"commandName": "Project",
@@ -15,6 +15,10 @@
 		"2022": {
 			"commandName": "Project",
 			"commandLineArgs": "--year 2022"
+		},
+		"2015": {
+			"commandName": "Project",
+			"commandLineArgs": "--year 2015"
 		}
 	}
 }

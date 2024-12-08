@@ -1,8 +1,8 @@
-﻿using AdventOfCode.Lib;
+﻿using AdventOfCode.Lib.Solutions;
 
 namespace AdventOfCode.Y2023.Day01;
 
-public sealed class Solution : BaseSolution, ISolution
+public sealed class Solution : LineInputSolution, ISolution
 {
     public Solution(string rawInput) : base(rawInput)
     { }
@@ -12,7 +12,7 @@ public sealed class Solution : BaseSolution, ISolution
         int sum = 0;
         int first, second;
 
-        foreach (var line in input)
+        foreach (var line in lines)
         {
             first = int.Parse(line.First(char.IsDigit).ToString());
             second = int.Parse(line.Last(char.IsDigit).ToString());
@@ -25,7 +25,7 @@ public sealed class Solution : BaseSolution, ISolution
     public string SolvePartTwo()
     {
         int sum = 0;
-        foreach (var line in input)
+        foreach (var line in lines)
         {
             int firstValue = GetFirstDigit(line);
             int lastValue = GetLastDigit(line);

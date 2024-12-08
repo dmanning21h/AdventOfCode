@@ -1,4 +1,4 @@
-﻿using AdventOfCode.Lib;
+﻿using AdventOfCode.Lib.Solutions;
 
 namespace AdventOfCode.Y2022.Day01;
 

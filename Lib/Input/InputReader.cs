@@ -1,4 +1,4 @@
-﻿namespace AdventOfCode.Lib;
+﻿namespace AdventOfCode.Lib.Input;
 
 public static class InputReader
 {

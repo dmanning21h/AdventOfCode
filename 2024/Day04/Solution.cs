@@ -1,4 +1,5 @@
-﻿using AdventOfCode.Lib;
+﻿using AdventOfCode.Lib.Input;
+using AdventOfCode.Lib.Solutions;
 using System.Text.RegularExpressions;
 
 namespace AdventOfCode.Y2024.Day04;

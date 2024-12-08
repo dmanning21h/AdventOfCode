@@ -1,8 +1,8 @@
-﻿using AdventOfCode.Lib;
+﻿using AdventOfCode.Lib.Solutions;
 
 namespace AdventOfCode.Y2022.Day02;
 
-public sealed class Solution : BaseSolution, ISolution
+public sealed class Solution : LineInputSolution, ISolution
 {
     public Solution(string rawInput) : base(rawInput)
     { }
@@ -10,7 +10,7 @@ public sealed class Solution : BaseSolution, ISolution
     public string SolvePartOne()
     {
         var score = 0;
-        foreach (var line in input)
+        foreach (var line in lines)
         {
             var parts = line.Split(" ");
             var opponentMove = MapOpponentInputToMove(parts[0]);
@@ -26,7 +26,7 @@ public sealed class Solution : BaseSolution, ISolution
     public string SolvePartTwo()
     {
         var score = 0;
-        foreach (var line in input)
+        foreach (var line in lines)
         {
             var parts = line.Split(" ");
             var opponentMove = MapOpponentInputToMove(parts[0]);
