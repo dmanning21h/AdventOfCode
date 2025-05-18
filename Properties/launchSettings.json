@@ -1,8 +1,8 @@
 {
 	"profiles": {
-		"2024 Day 9": {
+		"2015 Day 3": {
 			"commandName": "Project",
-			"commandLineArgs": "--year 2024 --day 9"
+			"commandLineArgs": "--year 2015 --day 3"
 		},
 		"2024": {
 			"commandName": "Project",
