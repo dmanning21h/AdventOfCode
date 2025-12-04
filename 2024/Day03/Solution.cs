@@ -57,7 +57,7 @@ public sealed class Solution : ISolution
 
     private int GetSum(string text)
     {
-        Regex pattern = new Regex(@"mul[(](?<value1>\d+),(?<value2>\d+)[)]");
+        Regex pattern = new(@"mul[(](?<value1>\d+),(?<value2>\d+)[)]");
         var match = pattern.Matches(text);
 
         int sum = 0;

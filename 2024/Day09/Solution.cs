@@ -1,5 +1,4 @@
-﻿using AdventOfCode.Lib.Extensions;
-using AdventOfCode.Lib.Solutions;
+﻿using AdventOfCode.Lib.Solutions;
 
 namespace AdventOfCode.Y2024.Day09;
 
@@ -20,7 +19,7 @@ public sealed class Solution : ISolution
         for (int i = 0; i < input.Length; i++)
         {
             int currentInput = int.Parse(input[i].ToString());
-            if ( i % 2 == 0)
+            if (i % 2 == 0)
             {
                 for (int j = 0; j < currentInput; j++)
                 {
@@ -90,13 +89,13 @@ public sealed class Solution : ISolution
 
     private sealed class Block
     {
-        public long Index {  get; set; }
+        public long Index { get; set; }
 
         public int FileId { get; set; }
 
         public bool HasFile => FileId >= 0;
 
-        public long CheckSum => HasFile ? Index * FileId  : 0;
+        public long CheckSum => HasFile ? Index * FileId : 0;
 
         public Block(int index, int fileId)
         {
@@ -108,10 +107,14 @@ public sealed class Solution : ISolution
     private static void SwapBlocks(Block first, Block second)
     {
         if (first == null)
+        {
             throw new ArgumentNullException("first");
+        }
 
         if (second == null)
+        {
             throw new ArgumentNullException("second");
+        }
 
         var tmp = first.FileId;
         first.FileId = second.FileId;
