@@ -26,6 +26,15 @@ public sealed class Solution : LineInputSolution, ISolution
     public string SolvePartTwo()
     {
         int answer = 0;
+        foreach (string line in lines)
+        {
+            var dimensions = line.Split('x').Select(int.Parse).ToArray();
+            int l = dimensions[0];
+            int w = dimensions[1];
+            int h = dimensions[2];
+
+            answer += (l * w * h) + Math.Min(2*l + 2*w, Math.Min(2*w + 2*h, 2*h + 2*l));
+        }
 
         return answer.ToString();
     }
