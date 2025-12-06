@@ -12,14 +12,14 @@ public sealed class Solution(string rawInput) : LineInputSolution(rawInput), ISo
         foreach (string line in lines)
         {
             char direction = line[0];
-            int distance = int.Parse(line.Substring(1));
+            int magnitude = int.Parse(line.Substring(1));
 
             if (direction == 'L')
             {
-                distance *= -1;
+                magnitude *= -1;
             }
 
-            dialValue += distance;
+            dialValue += magnitude;
             dialValue = dialValue % 100;
 
             if (dialValue == 0)
