@@ -41,8 +41,6 @@ public sealed class Solution(string rawInput) : LineInputSolution(rawInput), ISo
                 remainingBatteries--;
             }
 
-            Console.WriteLine(maxJoltage);
-
             answer += long.Parse(maxJoltage);
         }
 
