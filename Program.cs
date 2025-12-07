@@ -1,6 +1,6 @@
-﻿using System.Reflection;
-using AdventOfCode.Lib.Input;
+﻿using AdventOfCode.Lib.Input;
 using AdventOfCode.Lib.Solutions;
+using System.Reflection;
 
 namespace AdventOfCode;
 
@@ -30,6 +30,7 @@ internal class Program
 
             Console.WriteLine($"Part One: {solution.SolvePartOne()}");
             Console.WriteLine($"Part Two: {solution.SolvePartTwo()}");
+            Console.ReadKey();
         }
         catch (Exception ex)
         {
